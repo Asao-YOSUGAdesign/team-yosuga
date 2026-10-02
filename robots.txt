@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asao-yosugadesign.github.io/team-yosuga/sitemap.xml
