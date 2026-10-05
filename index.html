@@ -11,7 +11,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-E44F5P53RZ');
   </script>
 
@@ -65,10 +64,10 @@
     
     /* ----- 全体設定 ----- */
     :root {
-      --bg-light: #f4f9f5;
-      --bg-white: #ffffff;
       --primary-color: #2e7d32;
       --accent-color: #ff9800;
+      --bg-light: #f4f9f5;
+      --bg-white: #ffffff;
       --text-main: #2c3e50;
       --text-sub: #607d8b;
       --line-green: #06c755;
@@ -114,9 +113,10 @@
     /* ----- ヒーローセクション ----- */
     .hero{
       position:relative;
-      background:#dfeadf;
+      background:#dbe8da;
       padding:50px 30px;
       overflow:hidden;
+      border-radius:0 0 40px 40px;
     }
     .hero-inner{
       max-width:1100px;
@@ -127,10 +127,10 @@
     .hero-main{
       width:100%;
       display:block;
+      border-radius:20px;
     }
     .hero-bottom{
-      margin-top:20px;
-
+      margin-top:24px;
       display:flex;
       justify-content:space-between;
       align-items:center;
@@ -146,21 +146,6 @@
     }
     .hero-cta:hover img{
       transform:scale(1.03);
-    }
-    .hero{
-      background:#dbe8da;
-      border-radius:0 0 40px 40px;
-    }
-    .hero-main{
-      width:100%;
-      border-radius:20px;
-      display:block;
-    }
-    .hero-bottom{
-      margin-top:24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
     }
     .hero::after{
       content:"";
@@ -201,7 +186,7 @@
       text-align: center;
     }
 
-    /* ----- SPORTS (3種目カード) ----- */
+    /* ----- SPORTS (4種目カード) ----- */
     .sports-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -338,11 +323,17 @@
     
     /* ----- スマホ対応 ----- */
     @media (max-width: 768px) {
-      /*header { flex-direction: column; gap: 10px; padding: 0.8rem 1rem; }*/
-      header nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; }
+      header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      header nav a {
+        font-size: 0.85rem;
+      }
       .hero h1 { font-size: 2.2rem; }
       .hero p { font-size: 1rem; }
-      /*.hero-chr-img { max-width: 200px; }*/
       section { padding: 40px 15px; }
       .btn-main { width: 90%; max-width:360px; }
       
@@ -396,8 +387,9 @@
   }
   </script>
 </head>
+  
 <body>
-
+  
   <!-- ヘッダー -->
   <header>
     <div class="header-logo">
@@ -408,7 +400,7 @@
       <a href="#sports">SPORTS</a>
       <a href="#schedule">EVENTS</a>
       <a href="#line">LINE</a>
-      <a href="#message">MESSAGE</a>
+      <a href="#faq">FAQ</a>
       <a href="#reserve">JOIN</a>
     </nav>
   </header>
@@ -572,6 +564,50 @@
     </div>
   </section>
 
+  <!-- FAQ よくある質問 -->
+  <section id="faq">
+    <h2 class="section-title">FAQ</h2>
+    <div class="sports-grid">
+      <div class="sport-card">
+        <h3>初心者でも参加できますか？</h3>
+        <p>
+          はい。参加者の多くが未経験からスタートしています。
+          スタッフがルールや打ち方を丁寧にサポートします。
+        </p>
+      </div>
+      <div class="sport-card">
+        <h3>一人でも参加できますか？</h3>
+        <p>
+          もちろんです。お一人で参加される方も多く、
+          すぐに仲間と一緒に楽しめる環境です。
+        </p>
+      </div>
+      <div class="sport-card">
+        <h3>道具は必要ですか？</h3>
+        <p>
+          ラケットやパドルはレンタルをご利用いただけます。
+          動きやすい服装とシューズをご用意ください。
+        </p>
+      </div>
+      <div class="sport-card">
+        <h3>子どもも参加できますか？</h3>
+        <p>
+          基本的に参加可能です。
+          詳細は公式LINEよりお気軽にお問い合わせください。
+        </p>
+      </div>
+      <div class="sport-card">
+        <h3>参加するには予約が必要ですか？</h3>
+        <p>
+          はい。初めてご参加される方は、
+          お申し込みフォームまたはInstagramのDMより
+          ご連絡をお願いいたします。
+          ご不明点もお気軽にお問い合わせください。
+        </p>
+      </div>
+    </div>
+  </section>
+  
   <!-- 代表メッセージ -->
   <section id="message">
     <h2 class="section-title">MESSAGE</h2>
@@ -586,13 +622,13 @@
         <p class="role">TEAM YOSUGA 代表</p>
       </div>
       <div class="representative-message">
-          <p>
-            <strong>
-              TEAM YOSUGAを立ち上げたのは、
-              「まずはボールを打ってみる」その一歩から、
-              誰かと繋がったり、新しい自分に出会えたりする瞬間を、
-              この三重県北勢地区でたくさん作りたいと思ったからです。
-            </strong>
+        <p>
+          <strong>
+            TEAM YOSUGAを立ち上げたのは、
+            「まずはボールを打ってみる」その一歩から、
+            誰かと繋がったり、新しい自分に出会えたりする瞬間を、
+            この三重県北勢地区でたくさん作りたいと思ったからです。
+          </strong>
         </p>
         <p>
           パデル、ピックルボール、ティプティ、テニス——
