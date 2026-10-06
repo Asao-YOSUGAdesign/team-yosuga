@@ -188,7 +188,56 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.04);
       text-align: center;
     }
-
+    
+    /* ----- NEWS ----- */
+    .news-box{
+      background: var(--bg-white);
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    #news-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    #news-list li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px 0;
+      border-bottom:1px solid #e5e5e5;
+    }
+    .news-date{
+      min-width:110px;
+      color:var(--primary-color);
+      font-weight:700;
+    }
+    #news-list li:last-child{
+      border-bottom:none;
+    }
+    .news-link{
+      color:var(--text-main);
+      transition:.2s;
+    }
+    .news-link:hover{
+      color:var(--primary-color);
+    }
+    
+    @media (max-width:768px){
+      .news-box{
+        padding:25px;
+      }
+      #news-list li{
+        display:block;
+      }
+      .news-date{
+        display:block;
+        margin-bottom:4px;
+        min-width:auto;
+      }
+    }
+    
     /* ----- SPORTS (4種目カード) ----- */
     .sports-grid {
       display: grid;
@@ -335,8 +384,6 @@
       header nav a {
         font-size: 0.85rem;
       }
-      .hero h1 { font-size: 2.2rem; }
-      .hero p { font-size: 1rem; }
       section { padding: 40px 15px; }
       .btn-main { width: 90%; max-width:360px; }
       
@@ -400,6 +447,7 @@
     </div>
     <nav>
       <a href="#about">ABOUT</a>
+      <a href="#news">NEWS</a>
       <a href="#sports">SPORTS</a>
       <a href="#schedule">EVENTS</a>
       <a href="#line">LINE</a>
@@ -441,6 +489,22 @@
     </div>
   </section>
 
+  <!-- NEWS -->
+  <section id="news">
+    <h2 class="section-title">NEWS</h2>
+    <p style="
+      text-align:center;
+      color:var(--text-sub);
+      margin-bottom:20px;">
+      TEAM YOSUGAからのお知らせ
+    </p>
+    <div class="news-box">
+      <ul id="news-list">
+        <li>NEWSを読み込み中...</li>
+      </ul>
+    </div>
+  </section>
+  
   <!-- スポーツ紹介 -->
   <section id="sports">
     <h2 class="section-title">OUR SPORTS</h2>
@@ -697,6 +761,54 @@
   <footer>
     <p>&copy; 2026 TEAM YOSUGA. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    const sheetID =
+      "1_5rAKd4XLRtCc1Zv4rLvobbNh63gr4MKo6hlBBjJWwI";
+    const sheetName = "NEWS";
+    const url =
+      `https://opensheet.elk.sh/${sheetID}/${sheetName}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const newsList =
+          document.getElementById("news-list");
+        newsList.innerHTML = "";
+        data.slice(0, 10).forEach(item => {
+          const li =
+            document.createElement("li");
+          const date =
+            item["日付"] || "";
+          const title =
+            item["タイトル"] || "";
+          const link =
+            item["URL"] || "";
+          if(link){
+            li.innerHTML = `
+              <span class="news-date">${date}</span>
+              <a
+                href="${link}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="news-link">
+                ${title}
+              </a>
+            `;
+          } else {
+            li.innerHTML = `
+              <span class="news-date">${date}</span>
+              ${title}
+            `;
+          }
+          newsList.appendChild(li);
+        });
+      })
+      .catch(error => {
+        document.getElementById("news-list").innerHTML =
+          "<li>NEWSを取得できませんでした。</li>";
+        console.error(error);
+      });
+    </script>
 
 </body>
 </html>
