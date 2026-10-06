@@ -785,11 +785,19 @@
           document.getElementById("news-list");
         newsList.innerHTML = "";
         data
-          .sort(
-            (a, b) =>
+          .map((item, index) => ({
+            ...item,
+            index
+          }))
+          .sort((a, b) => {
+            const dateDiff =
               new Date(b["日付"]) -
-              new Date(a["日付"])
-          )
+              new Date(a["日付"]);
+            if (dateDiff !== 0) {
+              return dateDiff;
+            }
+            return b.index - a.index;
+          })
           .slice(0, 10)
           .forEach(item => {
             const li =
