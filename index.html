@@ -23,6 +23,7 @@
   />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="canonical" href="https://asao-yosugadesign.github.io/team-yosuga/">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- OGP -->
@@ -112,8 +113,25 @@
       color: var(--text-main);
       transition: color 0.3s;
     }
-    header nav a:hover { color: var(--primary-color); }
+    header nav a:hover {
+      color: var(--primary-color);
+    }
+    /* Language Switch */
+    .lang-switch{
+      background:#2e7d32;
+      color:#fff !important;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:0.85rem;
+      font-weight:700;
+      line-height:1;
+    }
 
+    .lang-switch:hover{
+      background:#256728;
+      color:#fff !important;
+    }
+    
     /* ----- ヒーローセクション ----- */
     .hero{
       position:relative;
@@ -446,6 +464,15 @@
     ]
   }
   </script>
+  
+  <link rel="alternate"
+      hreflang="ja"
+      href="https://asao-yosugadesign.github.io/team-yosuga/" />
+
+  <link rel="alternate"
+      hreflang="en"
+      href="https://asao-yosugadesign.github.io/team-yosuga/en.html" />
+
 </head>
   
 <body>
@@ -463,6 +490,7 @@
       <a href="#line">LINE</a>
       <a href="#faq">FAQ</a>
       <a href="#reserve">JOIN</a>
+      <a href="en.html" class="lang-switch">EN</a>
     </nav>
   </header>
 
@@ -629,7 +657,7 @@
           </a>
         </div>
         <div class="line-card">
-          <h4>ジュニアテニス</h4>
+          <h4>テニス</h4>
           <a href="https://lin.ee/yOJwmPn"
              target="_blank"
              rel="noopener noreferrer"
@@ -743,7 +771,7 @@
 
   <!-- 予約・申込み -->
   <section id="reserve" style="text-align: center;">
-    <h2 class="section-title">EVENT RESERVE</h2>
+    <h2 class="section-title">EVENT REGISTRATION</h2>
     <p style="color: var(--text-sub); margin-bottom: 30px;"
        >イベントへの参加申し込み・お問合せはこちらのフォームからどうぞ！
     </p>
